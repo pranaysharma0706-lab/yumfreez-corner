@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YumFreez Corner</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#faf7f2;
+color:#222;
+}
+
+header{
+background:#fff;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+height:90px;
+}
+
+nav a{
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+color:#222;
+}
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:70px 5%;
+gap:40px;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-text h1{
+font-size:58px;
+color:#0a6628;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.btn{
+background:#b30000;
+color:#fff;
+padding:14px 28px;
+text-decoration:none;
+border-radius:30px;
+display:inline-block;
+}
+
+.hero-image img{
+width:100%;
+max-width:550px;
+border-radius:20px;
+}
+
+.features{
+background:#0a6628;
+color:#fff;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+text-align:center;
+padding:25px;
+font-weight:bold;
+}
+
+.section{
+padding:70px 5%;
+}
+
+.section h2{
+text-align:center;
+font-size:42px;
+margin-bottom:40px;
+color:#0a6628;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#fff;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card h3{
+padding:15px;
+text-align:center;
+}
+
+.contact{
+background:#fff;
+padding:70px 5%;
+text-align:center;
+}
+
+.map-btn{
+background:#0a6628;
+color:#fff;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+}
+
+footer{
+background:#b30000;
+color:#fff;
+text-align:center;
+padding:20px;
+}
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+.features{
+grid-template-columns:1fr 1fr;
+}
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<img src="images/logo.png" class="logo">
+
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#store">Store</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+<h1>One Stop for Snacks, Chaat & Daily Essentials</h1>
+
+<p>
+Fresh Momos, Nepal Style Chatpate, Chaat, Pakora,
+Tea, Coffee and Daily Use Items.
+</p>
+
+<a href="#menu" class="btn">Explore Menu</a>
+</div>
+
+<div class="hero-image">
+<img src="images/chatpate.jpg" alt="">
+</div>
+
+</section>
+
+<section class="features">
+<div>Fresh & Hygienic</div>
+<div>Daily Essentials</div>
+<div>Hot & Tasty</div>
+<div>Happy You</div>
+</section>
+
+<section class="section" id="menu">
+
+<h2>Our Menu</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/momos.jpg">
+<h3>Momos</h3>
+</div>
+
+<div class="card">
+<img src="images/panipuri.jpg">
+<h3>Pani Puri</h3>
+</div>
+
+<div class="card">
+<img src="images/chaat.jpg">
+<h3>Chaat</h3>
+</div>
+
+<div class="card">
+<img src="images/chatpate.jpg">
+<h3>Nepal Style Chatpate</h3>
+</div>
+
+<div class="card">
+<img src="images/pakora.jpg">
+<h3>Pakora</h3>
+</div>
+
+<div class="card">
+<img src="images/tea.jpg">
+<h3>Tea & Coffee</h3>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="store">
+
+<h2>General Store Essentials</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/chips.jpg">
+<h3>Chips</h3>
+</div>
+
+<div class="card">
+<img src="images/biscuits.jpg">
+<h3>Biscuits</h3>
+</div>
+
+<div class="card">
+<img src="images/colddrinks.jpg">
+<h3>Cold Drinks</h3>
+</div>
+
+<div class="card">
+<img src="images/dailyitems.jpg">
+<h3>Daily Essentials</h3>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2>Visit YumFreez Corner</h2>
+
+<p>
+Lava Road, Ahalay 1,<br>
+Gorubathan, Kalimpong,<br>
+West Bengal 735231
+</p>
+
+<br>
+
+<p><strong>Phone:</strong> 07501749231</p>
+<p><strong>Proprietor:</strong> Geeta Sharma</p>
+
+<br>
+
+<a class="map-btn"
+href="https://share.google/3h0U26xDqWjyRvXpV"
+target="_blank">
+View on Google Maps
+</a>
+
+</section>
+
+<footer>
+© 2026 YumFreez Corner | All Rights Reserved
+</footer>
+
+</body>
+</html>
