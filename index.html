@@ -257,10 +257,40 @@ setInterval(() => {
 }, 3000);
 </script>
 </section>
+<style>
+.moving-strip{
+    width:100%;
+    background:linear-gradient(90deg,#0b6b3a,#198754,#0b6b3a);
+    color:white;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:15px 0;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:10px;
+    margin:20px 0;
+}
+
+.moving-text{
+    display:inline-block;
+    padding-left:100%;
+    animation:trainmove 25s linear infinite;
+}
+
+@keyframes trainmove{
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform:translateX(-100%);
+    }
+}
+</style>
+
 <div class="moving-strip">
-  <div class="moving-text">
-    🌟 Welcome to YumFreez Corner 🌟 • 🛒 Your One Stop Shop for Daily Essentials • 🥟 Fresh & Tasty Momos • 🥗 Authentic Nepal Style Chatpate • 🥘 Delicious Chaat & Pani Puri • ☕ Refreshing Tea & Coffee • 🍫 Chocolates, Snacks & Biscuits • 🌿 Clean, Fresh & Hygienic Environment • 😊 Quality Products, Great Taste & Happy Smiles Every Day • ❤️ Thank You For Visiting YumFreez Corner ❤️
-  </div>
+    <div class="moving-text">
+        🌟 Welcome to YumFreez Corner 🌟 • 🛒 Your One Stop Shop for Daily Essentials • 🥟 Fresh & Tasty Momos • 🥗 Authentic Nepal Style Chatpate • 🥘 Delicious Chaat & Pani Puri • ☕ Refreshing Tea & Coffee • 🍫 Chocolates, Snacks & Biscuits • 🥤 Cold Drinks & Ice Cream • 🍜 Fast Food & Evening Snacks • 🌿 Fresh, Clean & Hygienic Environment • 😊 Quality Products, Great Taste & Happy Smiles Every Day • ❤️ Thank You For Visiting YumFreez Corner ❤️
+    </div>
 </div>
 <section class="section" id="menu">
 
