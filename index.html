@@ -214,47 +214,48 @@ Tea, Coffee and Daily Use Items.
 <a href="#menu" class="btn">Explore Menu</a>
 </div>
 
-<div class="hero-slideshow">
-    <img class="heroSlide" src="combine.jpeg" alt="Combine">
-    <img class="heroSlide" src="yumfreez.jpeg" alt="YumFreez">
-    <img class="heroSlide" src="yum.jpeg" alt="Yum">
+<div class="slideshow-container">
+    <img src="yum.jpeg" class="slide active">
+    <img src="yumfreez.jpeg" class="slide">
+    <img src="combine.jpeg" class="slide">
 </div>
 
 <style>
-.hero-slideshow{
+.slideshow-container{
     width:100%;
+    max-width:450px;
+    height:450px;
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
 }
 
-.heroSlide{
+.slide{
+    position:absolute;
     width:100%;
-    border-radius:15px;
-    display:none;
+    height:100%;
+    object-fit:cover;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:opacity 1s ease;
+}
+
+.slide.active{
+    opacity:1;
 }
 </style>
 
 <script>
-let slideIndex = 0;
-const slides = document.getElementsByClassName("heroSlide");
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
 
-function showSlides(){
-    for(let i=0;i<slides.length;i++){
-        slides[i].style.display="none";
-    }
-
-    slideIndex++;
-
-    if(slideIndex > slides.length){
-        slideIndex = 1;
-    }
-
-    slides[slideIndex-1].style.display="block";
-
-    setTimeout(showSlides,3000);
-}
-
-showSlides();
+setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}, 3000);
 </script>
-
 </section>
 
 <section class="features">
