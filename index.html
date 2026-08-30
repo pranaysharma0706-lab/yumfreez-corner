@@ -323,6 +323,21 @@ setInterval(() => {
         transform:translateX(-100%);
     }
 }
+    #reviews-box{
+  background:white;
+  padding:20px;
+  margin:30px;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.review{
+  background:#f7f7f7;
+  padding:12px;
+  margin:10px 0;
+  border-left:5px solid #b56a7a;
+  border-radius:10px;
+}
 </style>
 
 <div class="moving-strip">
@@ -373,7 +388,10 @@ setInterval(() => {
 💬 Give Feedback
 </a>
 <section class="section" id="store">
-
+<div id="reviews-box">
+  <h2>⭐ Customer Reviews</h2>
+  <div id="reviews"></div>
+</div>
 <h2>General Store Essentials</h2>
 
 <div class="grid">
@@ -454,6 +472,24 @@ align-items:center;
 <footer>
 © 2026 YumFreez Corner | All Rights Reserved
 </footer>
+<script>
+fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJMY6iF_9i6Epx3TaHF5mt_rPxFJK_a-jkBEwg/exec")
+.then(response => response.json())
+.then(data => {
+  let html = "";
 
+  data.reverse().forEach(review => {
+    html += `
+      <div class="review">
+        <b>${review.name}</b><br>
+        ⭐ ${review.rating}<br>
+        ${review.feedback}
+      </div>
+    `;
+  });
+
+  document.getElementById("reviews").innerHTML = html;
+});
+</script>
 </body>
 </html>
