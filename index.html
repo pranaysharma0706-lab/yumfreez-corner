@@ -6,6 +6,27 @@
 <title>YumFreez Corner</title>
 
 <style>
+    .feedback-btn{
+    position:fixed;
+    right:20px;
+    bottom:100px;
+    background:#b56a7a;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    animation:float 2s ease-in-out infinite;
+    z-index:999;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
 *{
 margin:0;
 padding:0;
@@ -348,7 +369,9 @@ setInterval(() => {
 </div>
 
 </section>
-
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc84YRr_N65PlBmILzxwlgr_K6uOu6iLjtJ_FkxT31omBLuJw/viewform?usp=header" target="_blank" class="feedback-btn">
+💬 Give Feedback
+</a>
 <section class="section" id="store">
 
 <h2>General Store Essentials</h2>
