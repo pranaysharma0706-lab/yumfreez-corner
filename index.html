@@ -338,6 +338,26 @@ setInterval(() => {
   border-left:5px solid #b56a7a;
   border-radius:10px;
 }
+    .review{
+    background:white;
+    padding:15px;
+    margin:15px 0;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-left:5px solid #b56a7a;
+    transition:0.3s;
+    animation:float 3s ease-in-out infinite;
+}
+
+.review:hover{
+    transform:scale(1.03);
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
 </style>
 
 <div class="moving-strip">
@@ -489,6 +509,17 @@ fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJ
   });
 
   document.getElementById("reviews").innerHTML = html;
+});
+</script><script>
+document.querySelectorAll('.review').forEach((review, index) => {
+    review.style.opacity = "0";
+    review.style.transform = "translateY(30px)";
+
+    setTimeout(() => {
+        review.style.transition = "all 0.8s ease";
+        review.style.opacity = "1";
+        review.style.transform = "translateY(0)";
+    }, index * 300);
 });
 </script>
 </body>
