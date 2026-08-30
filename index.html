@@ -27,6 +27,20 @@
     50%{transform:translateY(-10px);}
     100%{transform:translateY(0);}
 }
+    #reviews-container{
+    height:250px;
+    overflow:hidden;
+    position:relative;
+}
+
+#reviews{
+    animation:scrollReviews 15s linear infinite;
+}
+
+@keyframes scrollReviews{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-50%);}
+}
 *{
 margin:0;
 padding:0;
@@ -410,7 +424,9 @@ setInterval(() => {
 <section class="section" id="store">
 <div id="reviews-box">
   <h2>⭐ Customer Reviews</h2>
-  <div id="reviews"></div>
+  <div id="reviews-container">
+    <div id="reviews"></div>
+</div>
 </div>
 <h2>General Store Essentials</h2>
 
