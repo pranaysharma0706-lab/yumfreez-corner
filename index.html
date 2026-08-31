@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,10 +41,6 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-}
-
-.logo{
-    height:90px;
 }
 
 nav a{
@@ -104,7 +101,7 @@ nav a:hover{
 
 
 /* ============================= */
-/* HERO SLIDESHOW */
+/* SLIDESHOW */
 /* ============================= */
 
 .slideshow-container{
@@ -129,71 +126,6 @@ nav a:hover{
 
 .slide.active{
     opacity:1;
-}
-
-
-/* ============================= */
-/* GREEN FEATURES */
-/* ============================= */
-
-.features{
-    background:#0a6628;
-    color:#fff;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    text-align:center;
-    padding:25px;
-    font-weight:bold;
-}
-
-
-/* ============================= */
-/* SECTIONS */
-/* ============================= */
-
-.section{
-    padding:70px 5%;
-}
-
-.section h2{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:40px;
-    color:#0a6628;
-}
-
-
-/* ============================= */
-/* MENU GRID */
-/* ============================= */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,.1);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card h3{
-    padding:15px;
-    text-align:center;
 }
 
 
@@ -234,6 +166,56 @@ nav a:hover{
 
 
 /* ============================= */
+/* SECTIONS */
+/* ============================= */
+
+.section{
+    padding:70px 5%;
+}
+
+.section h2{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:40px;
+    color:#0a6628;
+}
+
+
+/* ============================= */
+/* CARDS */
+/* ============================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px;
+    text-align:center;
+}
+
+
+/* ============================= */
 /* CUSTOMER REVIEWS */
 /* ============================= */
 
@@ -252,7 +234,7 @@ nav a:hover{
 }
 
 
-/* Review viewing window */
+/* Review window */
 
 #reviews-container{
     height:300px;
@@ -261,14 +243,14 @@ nav a:hover{
 }
 
 
-/* Moving reviews */
+/* Reviews */
 
 #reviews{
-    animation:scrollReviews 25s linear infinite;
+    position:relative;
 }
 
 
-/* Individual review */
+/* Individual comment */
 
 .review{
     background:#f7f7f7;
@@ -276,29 +258,16 @@ nav a:hover{
     margin:15px 0;
     border-left:5px solid #b56a7a;
     border-radius:10px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.08);
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    position:relative;
 }
 
 
-/* Pause scrolling when mouse is over reviews */
+/* Highlight comment when cursor is over it */
 
-#reviews-container:hover #reviews{
-    animation-play-state:paused;
-}
-
-
-/* Smooth upward scrolling */
-
-@keyframes scrollReviews{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    100%{
-        transform:translateY(-50%);
-    }
-
+.review:hover{
+    box-shadow:0 6px 16px rgba(0,0,0,0.15);
+    transform:scale(1.01);
 }
 
 
@@ -355,7 +324,7 @@ nav a:hover{
 
 
 /* ============================= */
-/* MAP BUTTON */
+/* MAP */
 /* ============================= */
 
 .map-btn{
@@ -412,10 +381,6 @@ footer{
         height:350px;
     }
 
-    .features{
-        grid-template-columns:1fr 1fr;
-    }
-
     #contact{
         grid-template-columns:1fr;
         gap:25px;
@@ -437,40 +402,43 @@ footer{
 
 <header>
 
-    <div style="display:flex;align-items:center;">
+<div style="display:flex;align-items:center;">
 
-        <img src="logo.png" style="width:90px;">
+    <img src="logo.png" style="width:90px;">
 
-        <div style="margin-left:10px;">
+    <div style="margin-left:10px;">
 
-            <div style="font-size:48px;font-weight:bold;">
-                <span style="color:#0a6628;">Yum</span><span style="color:#b30000;">Freez</span>
-            </div>
+        <div style="font-size:48px;font-weight:bold;">
 
-            <div style="
-            color:#b30000;
-            letter-spacing:8px;
-            font-weight:bold;
-            text-align:center;">
+            <span style="color:#0a6628;">Yum</span>
+            <span style="color:#b30000;">Freez</span>
 
-                CORNER
+        </div>
 
-            </div>
+        <div style="
+        color:#b30000;
+        letter-spacing:8px;
+        font-weight:bold;
+        text-align:center;">
+
+            CORNER
 
         </div>
 
     </div>
 
+</div>
 
-    <nav>
 
-        <a href="#home">🏡 Home</a>
+<nav>
 
-        <a href="#menu">🍜 Menu</a>
+    <a href="#home">🏡 Home</a>
 
-        <a href="#contact">☎️ Contact</a>
+    <a href="#menu">🍜 Menu</a>
 
-    </nav>
+    <a href="#contact">☎️ Contact</a>
+
+</nav>
 
 </header>
 
@@ -482,62 +450,60 @@ footer{
 
 <section class="hero" id="home">
 
-    <div class="hero-text">
+<div class="hero-text">
 
-        <h1>
-            One Stop for Snacks, Chaat & Daily Essentials
-        </h1>
+    <h1>
+        One Stop for Snacks, Chaat & Daily Essentials
+    </h1>
 
-        <p>
-            Fresh Momos, Nepal Style Chatpate, Chaat, Pakora,
-            Tea, Coffee and Daily Use Items.
-        </p>
+    <p>
+        Fresh Momos, Nepal Style Chatpate, Chaat, Pakora,
+        Tea, Coffee and Daily Use Items.
+    </p>
 
-        <a href="#menu" class="btn">
-            Explore Menu
-        </a>
+    <a href="#menu" class="btn">
+        Explore Menu
+    </a>
 
-    </div>
+</div>
 
 
-    <!-- SLIDESHOW -->
+<div class="slideshow-container">
 
-    <div class="slideshow-container">
+    <img src="yum.jpeg" class="slide active">
 
-        <img src="yum.jpeg" class="slide active">
+    <img src="yumfreez.jpeg" class="slide">
 
-        <img src="yumfreez.jpeg" class="slide">
+    <img src="combine.jpeg" class="slide">
 
-        <img src="combine.jpeg" class="slide">
-
-    </div>
+</div>
 
 </section>
 
 
 
 <!-- ============================= -->
-<!-- MOVING WELCOME STRIP -->
+<!-- MOVING MESSAGE -->
 <!-- ============================= -->
 
 <div class="moving-strip">
 
-    <div class="moving-text">
+<div class="moving-text">
 
-        🌟 Welcome to YumFreez Corner 🌟
-        • 🛒 Your One Stop Shop for Daily Essentials
-        • 🥟 Fresh & Tasty Momos
-        • 🥗 Authentic Nepal Style Chatpate
-        • 🥘 Delicious Chaat & Pani Puri
-        • ☕ Refreshing Tea & Coffee
-        • 🍫 Chocolates, Snacks & Biscuits
-        • 🥤 Cold Drinks & Ice Cream
-        • 🍜 Fast Food & Evening Snacks
-        • 🌿 Fresh, Clean & Hygienic Environment
-        • 😊 Quality Products, Great Taste & Happy Smiles Every Day
-        • ❤️ Thank You For Visiting YumFreez Corner ❤️
+🌟 Welcome to YumFreez Corner 🌟
+• 🛒 Your One Stop Shop for Daily Essentials
+• 🥟 Fresh & Tasty Momos
+• 🥗 Authentic Nepal Style Chatpate
+• 🥘 Delicious Chaat & Pani Puri
+• ☕ Refreshing Tea & Coffee
+• 🍫 Chocolates, Snacks & Biscuits
+• 🥤 Cold Drinks & Ice Cream
+• 🍜 Fast Food & Evening Snacks
+• 🌿 Fresh, Clean & Hygienic Environment
+• 😊 Quality Products, Great Taste & Happy Smiles Every Day
+• ❤️ Thank You For Visiting YumFreez Corner ❤️
 
-    </div>
+</div>
 
 </div>
 
@@ -549,74 +515,73 @@ footer{
 
 <section class="section" id="menu">
 
-    <h2>Our Menu</h2>
+<h2>Our Menu</h2>
+
+<div class="grid">
 
 
-    <div class="grid">
+<div class="card">
+
+<img src="momos.jpg">
+
+<h3>Momos</h3>
+
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <img src="momos.jpg">
+<img src="panipuri.jpg">
 
-            <h3>Momos</h3>
+<h3>Pani Puri</h3>
 
-        </div>
-
-
-        <div class="card">
-
-            <img src="panipuri.jpg">
-
-            <h3>Pani Puri</h3>
-
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <img src="chaat.jpg">
+<img src="chaat.jpg">
 
-            <h3>Chaat</h3>
+<h3>Chaat</h3>
 
-        </div>
-
-
-        <div class="card">
-
-            <img src="chatpate.jpg">
-
-            <h3>Nepal Style Chatpate</h3>
-
-        </div>
+</div>
 
 
-        <div class="card">
+<div class="card">
 
-            <img src="pakora.jpg">
+<img src="chatpate.jpg">
 
-            <h3>Pakora</h3>
+<h3>Nepal Style Chatpate</h3>
 
-        </div>
-
-
-        <div class="card">
-
-            <img src="tea.jpg">
-
-            <h3>Tea & Coffee</h3>
-
-        </div>
+</div>
 
 
-    </div>
+<div class="card">
+
+<img src="pakora.jpg">
+
+<h3>Pakora</h3>
+
+</div>
+
+
+<div class="card">
+
+<img src="tea.jpg">
+
+<h3>Tea & Coffee</h3>
+
+</div>
+
+
+</div>
 
 </section>
 
 
 
 <!-- ============================= -->
-<!-- FEEDBACK BUTTON -->
+<!-- FEEDBACK -->
 <!-- ============================= -->
 
 <a
@@ -631,89 +596,89 @@ class="feedback-btn">
 
 
 <!-- ============================= -->
-<!-- CUSTOMER REVIEWS -->
+<!-- REVIEWS -->
 <!-- ============================= -->
 
 <section class="section">
 
-    <div id="reviews-box">
+<div id="reviews-box">
 
-        <h2>
-            ⭐ Customer Reviews
-        </h2>
-
-
-        <div id="reviews-container">
-
-            <div id="reviews">
-
-                <!-- Reviews will load here -->
-
-            </div>
-
-        </div>
-
-    </div>
+<h2>
+⭐ Customer Reviews
+</h2>
 
 
+<div id="reviews-container">
 
-    <!-- ============================= -->
-    <!-- GENERAL STORE -->
-    <!-- ============================= -->
+<div id="reviews">
 
-    <h2>
-        General Store Essentials
-    </h2>
+<!-- Reviews loaded automatically -->
 
+</div>
 
-    <div class="grid">
+</div>
 
-
-        <div class="card">
-
-            <img src="chips.jpg">
-
-            <h3>
-                Chips
-            </h3>
-
-        </div>
+</div>
 
 
-        <div class="card">
 
-            <img src="biscuits.jpg">
+<!-- ============================= -->
+<!-- GENERAL STORE -->
+<!-- ============================= -->
 
-            <h3>
-                Biscuits
-            </h3>
-
-        </div>
-
-
-        <div class="card">
-
-            <img src="colddrinks.jpg">
-
-            <h3>
-                Cold Drinks
-            </h3>
-
-        </div>
+<h2>
+General Store Essentials
+</h2>
 
 
-        <div class="card">
-
-            <img src="dailyitems.jpg">
-
-            <h3>
-                Daily Essentials
-            </h3>
-
-        </div>
+<div class="grid">
 
 
-    </div>
+<div class="card">
+
+<img src="chips.jpg">
+
+<h3>
+Chips
+</h3>
+
+</div>
+
+
+<div class="card">
+
+<img src="biscuits.jpg">
+
+<h3>
+Biscuits
+</h3>
+
+</div>
+
+
+<div class="card">
+
+<img src="colddrinks.jpg">
+
+<h3>
+Cold Drinks
+</h3>
+
+</div>
+
+
+<div class="card">
+
+<img src="dailyitems.jpg">
+
+<h3>
+Daily Essentials
+</h3>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -726,67 +691,64 @@ class="feedback-btn">
 <section id="contact">
 
 
-    <div>
+<div>
 
-        <h3>
-            📍 Visit Us
-        </h3>
+<h3>
+📍 Visit Us
+</h3>
 
-        <p>
-            Ahalay 1, Gorubathan<br>
-            Kalimpong - 735231
-        </p>
+<p>
+Ahalay 1, Gorubathan<br>
+Kalimpong - 735231
+</p>
 
-    </div>
-
-
-
-    <div>
-
-        <h3>
-            📞 Call Us
-        </h3>
-
-        <p>
-            07501749231
-        </p>
-
-    </div>
+</div>
 
 
+<div>
 
-    <div>
+<h3>
+📞 Call Us
+</h3>
 
-        <h3>
-            👤 Proprietor
-        </h3>
+<p>
+07501749231
+</p>
 
-        <p>
-            Geeta Sharma
-        </p>
-
-    </div>
-
+</div>
 
 
-    <div>
+<div>
 
-        <h3>
-            Follow Us
-        </h3>
+<h3>
+👤 Proprietor
+</h3>
 
-        <a
-        href="https://instagram.com/lifestylegeetas"
-        target="_blank">
+<p>
+Geeta Sharma
+</p>
 
-            <img
-            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-            alt="Instagram"
-            width="30">
+</div>
 
-        </a>
 
-    </div>
+<div>
+
+<h3>
+Follow Us
+</h3>
+
+<a
+href="https://instagram.com/lifestylegeetas"
+target="_blank">
+
+<img
+src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+alt="Instagram"
+width="30">
+
+</a>
+
+</div>
 
 
 </section>
@@ -799,14 +761,14 @@ class="feedback-btn">
 
 <div style="text-align:center;margin:40px 0;">
 
-    <a
-    class="map-btn"
-    href="https://share.google/3h0U26xDqWjyRvXpV"
-    target="_blank">
+<a
+class="map-btn"
+href="https://share.google/3h0U26xDqWjyRvXpV"
+target="_blank">
 
-        📍 View on Google Maps
+📍 View on Google Maps
 
-    </a>
+</a>
 
 </div>
 
@@ -818,14 +780,14 @@ class="feedback-btn">
 
 <footer>
 
-    © 2026 YumFreez Corner | All Rights Reserved
+© 2026 YumFreez Corner | All Rights Reserved
 
 </footer>
 
 
 
 <!-- ============================= -->
-<!-- HERO SLIDESHOW JAVASCRIPT -->
+<!-- SLIDESHOW SCRIPT -->
 <!-- ============================= -->
 
 <script>
@@ -838,18 +800,19 @@ setInterval(() => {
 
     slides[currentSlide].classList.remove('active');
 
-    currentSlide = (currentSlide + 1) % slides.length;
+    currentSlide =
+        (currentSlide + 1) % slides.length;
 
     slides[currentSlide].classList.add('active');
 
-}, 3000);
+},3000);
 
 </script>
 
 
 
 <!-- ============================= -->
-<!-- CUSTOMER REVIEWS JAVASCRIPT -->
+<!-- CUSTOMER REVIEWS SCRIPT -->
 <!-- ============================= -->
 
 <script>
@@ -863,25 +826,25 @@ fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJ
     let html = "";
 
 
-    /* Reverse so newest reviews appear first */
+    /* Newest reviews first */
 
     data.reverse().forEach(review => {
 
         html += `
 
-            <div class="review">
+        <div class="review">
 
-                <b>${review.name}</b>
+            <b>${review.name}</b>
 
-                <br>
+            <br>
 
-                ⭐ ${review.rating}
+            ⭐ ${review.rating}
 
-                <br>
+            <br>
 
-                ${review.feedback}
+            ${review.feedback}
 
-            </div>
+        </div>
 
         `;
 
@@ -889,20 +852,117 @@ fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJ
 
 
     /*
-       DUPLICATE THE REVIEWS
-
-       This allows the animation to keep
-       moving upward continuously.
+    Duplicate the reviews.
+    This creates the continuous
+    scrolling effect.
     */
 
     document.getElementById("reviews").innerHTML =
         html + html;
 
+
+    /* ============================= */
+    /* REVIEW SCROLLER */
+    /* ============================= */
+
+    const container =
+        document.getElementById("reviews-container");
+
+    const reviews =
+        document.getElementById("reviews");
+
+    let position = 0;
+
+    const speed = 0.45;
+
+    let hoveredComment = null;
+
+
+    /* Detect ONLY individual comments */
+
+    document.querySelectorAll(".review").forEach(review => {
+
+        review.addEventListener("mouseenter", function(){
+
+            hoveredComment = this;
+
+        });
+
+
+        review.addEventListener("mouseleave", function(){
+
+            hoveredComment = null;
+
+        });
+
+    });
+
+
+    /* ============================= */
+    /* SCROLL FUNCTION */
+    /* ============================= */
+
+    function moveReviews(){
+
+        /*
+        Normally move upward
+        */
+
+        if(!hoveredComment){
+
+            position -= speed;
+
+        }
+
+
+        reviews.style.transform =
+            "translateY(" + position + "px)";
+
+
+        /*
+        When cursor is directly over
+        a comment, scrolling pauses.
+        */
+
+        if(hoveredComment){
+
+            reviews.style.transform =
+                "translateY(" + position + "px)";
+
+        }
+
+
+        /*
+        When first copy has moved away,
+        restart from the beginning.
+        */
+
+        const halfHeight =
+            reviews.scrollHeight / 2;
+
+
+        if(Math.abs(position) >= halfHeight){
+
+            position = 0;
+
+        }
+
+
+        requestAnimationFrame(moveReviews);
+
+    }
+
+
+    moveReviews();
+
 })
 
 .catch(error => {
 
-    console.log("Unable to load reviews:", error);
+    console.log(
+        "Unable to load reviews:",
+        error
+    );
 
 });
 
