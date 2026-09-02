@@ -9,6 +9,10 @@
 
 <title>YumFreez Corner</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
 
 /* ============================= */
@@ -217,21 +221,83 @@ nav a:hover{
 
 
 /* ============================= */
-/* CUSTOMER REVIEWS */
+/* STORE + REVIEWS SPLIT LAYOUT */
+/* ============================= */
+
+.store-reviews-wrap{
+    display:flex;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.store-side{
+    flex:2 1 480px;
+}
+
+.store-side h2{
+    text-align:left;
+}
+
+.reviews-side{
+    flex:1 1 320px;
+    max-width:380px;
+}
+
+
+/* ============================= */
+/* CUSTOMER REVIEWS - NOTEPAD STYLE */
 /* ============================= */
 
 #reviews-box{
-    background:white;
-    padding:25px;
-    margin:30px 0;
-    border-radius:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    background-color:#fffdf3;
+    background-image:
+        linear-gradient(#fffdf3,#fffdf3),
+        repeating-linear-gradient(
+            #fffdf3 0px,
+            #fffdf3 31px,
+            #dcd6c0 32px
+        );
+    padding:28px 22px 22px 42px;
+    border-radius:6px 6px 14px 14px;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15),
+        0 2px 4px rgba(0,0,0,.08);
+    position:relative;
+    border:1px solid #e6e0c8;
+}
+
+/* red margin line, like a real notepad */
+#reviews-box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:34px;
+    width:2px;
+    background:rgba(214,66,86,.55);
+}
+
+/* spiral binding holes along the top */
+#reviews-box::after{
+    content:"";
+    position:absolute;
+    top:10px;
+    left:0;
+    right:0;
+    height:12px;
+    background-image:radial-gradient(circle,#d8d2ba 4px,transparent 4.5px);
+    background-size:32px 12px;
+    background-position:20px 0;
+    background-repeat:repeat-x;
 }
 
 #reviews-box h2{
     text-align:center;
     color:#0a6628;
-    margin-bottom:25px;
+    margin-bottom:20px;
+    font-family:'Caveat',cursive;
+    font-size:34px;
 }
 
 
@@ -254,21 +320,28 @@ nav a:hover{
 /* Individual comment */
 
 .review{
-    background:#f7f7f7;
-    padding:18px;
-    margin:15px 0;
-    border-left:5px solid #b56a7a;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    background:transparent;
+    padding:6px 4px 18px 4px;
+    margin:0;
+    border-left:none;
+    border-bottom:1px dashed #d8d2ba;
+    border-radius:0;
+    box-shadow:none;
     position:relative;
+    font-family:'Caveat',cursive;
+    font-size:20px;
+    line-height:1.5;
+    color:#3a3326;
+    transition:.2s;
 }
 
 
 /* Highlight comment when cursor is over it */
 
 .review:hover{
-    box-shadow:0 6px 16px rgba(0,0,0,0.15);
+    box-shadow:none;
     transform:scale(1.01);
+    color:#0a6628;
 }
 
 
@@ -310,17 +383,30 @@ nav a:hover{
 
 
 /* ============================= */
-/* CONTACT */
+/* CONTACT - PINK, CURSIVE */
 /* ============================= */
 
 #contact{
-    background:#b30000;
+    background:#e85d8a;
     color:white;
-    padding:25px 10px;
+    padding:35px 10px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     text-align:center;
     align-items:center;
+}
+
+#contact h3{
+    font-family:'Dancing Script',cursive;
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+#contact p{
+    font-family:'Dancing Script',cursive;
+    font-size:22px;
+    line-height:1.5;
 }
 
 
@@ -341,14 +427,17 @@ nav a:hover{
 
 
 /* ============================= */
-/* FOOTER */
+/* FOOTER - PINK, CURSIVE */
 /* ============================= */
 
 footer{
-    background:#b30000;
+    background:#e85d8a;
     color:#fff;
     text-align:center;
-    padding:20px;
+    padding:22px;
+    font-family:'Dancing Script',cursive;
+    font-size:22px;
+    font-weight:700;
 }
 
 
@@ -385,6 +474,14 @@ footer{
     #contact{
         grid-template-columns:1fr;
         gap:25px;
+    }
+
+    .store-side h2{
+        text-align:center;
+    }
+
+    .reviews-side{
+        max-width:100%;
     }
 
 }
@@ -597,35 +694,17 @@ class="feedback-btn">
 
 
 <!-- ============================= -->
-<!-- REVIEWS -->
+<!-- GENERAL STORE + REVIEWS -->
 <!-- ============================= -->
 
 <section class="section">
 
-<div id="reviews-box">
-
-<h2>
-⭐ Customer Reviews
-</h2>
+<div class="store-reviews-wrap">
 
 
-<div id="reviews-container">
+<!-- GENERAL STORE (left) -->
 
-<div id="reviews">
-
-<!-- Reviews loaded automatically -->
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ============================= -->
-<!-- GENERAL STORE -->
-<!-- ============================= -->
+<div class="store-side">
 
 <h2>
 General Store Essentials
@@ -675,6 +754,37 @@ Cold Drinks
 <h3>
 Daily Essentials
 </h3>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- REVIEWS (right, notepad style) -->
+
+<div class="reviews-side">
+
+<div id="reviews-box">
+
+<h2>
+⭐ Customer Reviews
+</h2>
+
+
+<div id="reviews-container">
+
+<div id="reviews">
+
+<!-- Reviews loaded automatically -->
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
