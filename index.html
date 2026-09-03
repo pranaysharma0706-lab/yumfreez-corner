@@ -1,1085 +1,652 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
- <link rel="icon" type="image/ico" href="favicon.ico">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="icon" href="https://yumfreez.in/favicon.ico">
 <title>YumFreez Corner</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
-/* ============================= */
-/* GENERAL */
-/* ============================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    background:#faf7f2;
-    color:#222;
+    font-family:'DM Sans',Arial,sans-serif;
+    color:#24302b;
+    background:#f5f8f4;
+    overflow-x:hidden;
 }
+a{text-decoration:none}
+button{font-family:inherit}
 
-
-/* ============================= */
-/* HEADER */
-/* ============================= */
-
+/* ---------- HEADER ---------- */
 header{
-    background:#fff;
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-    position:sticky;
-    top:0;
-    z-index:1000;
+    position:sticky;top:0;z-index:1000;
+    padding:12px 5%;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:25px;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(35,70,50,.10);
+    box-shadow:0 8px 30px rgba(31,60,43,.10);
 }
-
-nav a{
-    display:inline-block;
-    padding:14px 28px;
-    margin:0 10px;
-    background:#b76e79;
-    color:white;
-    text-decoration:none;
-    border-radius:50px;
-    font-size:22px;
-    font-weight:bold;
-    transition:0.3s;
+.brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+.brand img{width:70px;height:70px;object-fit:contain}
+.brand-name{font-size:38px;font-weight:800;line-height:.9;letter-spacing:-1.5px}
+.brand-name .yum{color:#0a6628}
+.brand-name .freez{color:#b30000}
+.corner{
+    color:#b56a7a;letter-spacing:7px;font-size:12px;font-weight:800;
+    margin-top:8px;text-align:center;
 }
-
-nav a:hover{
-    background:#8a4f58;
-    transform:scale(1.05);
+nav{display:flex;align-items:center;gap:12px}
+.nav-btn{
+    border:0;color:white;cursor:pointer;
+    padding:12px 22px;border-radius:16px;
+    font-size:16px;font-weight:700;
+    background:linear-gradient(135deg,#276c50,#3d9971);
+    box-shadow:0 8px 18px rgba(39,108,80,.24), inset 0 1px rgba(255,255,255,.35);
+    transition:.25s ease;
 }
+.nav-btn.menu{
+    background:linear-gradient(135deg,#c35f7a,#e38ca2);
+    box-shadow:0 8px 18px rgba(195,95,122,.25), inset 0 1px rgba(255,255,255,.4);
+}
+.nav-btn:hover{transform:translateY(-3px);filter:brightness(1.05)}
+.nav-btn:active{transform:translateY(0)}
 
-
-/* ============================= */
-/* HERO */
-/* ============================= */
-
+/* ---------- HERO ---------- */
 .hero{
-    display:flex;
+    position:relative;
+    min-height:600px;
+    padding:70px 7%;
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:55px;
     align-items:center;
-    justify-content:space-between;
-    padding:70px 5%;
-    gap:40px;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 10% 20%,rgba(214,239,224,.8),transparent 32%),
+      radial-gradient(circle at 90% 80%,rgba(248,216,225,.8),transparent 32%),
+      linear-gradient(135deg,#f8fbf7,#fff8fa);
 }
-
-.hero-text{
-    max-width:600px;
+.hero:before,.hero:after{
+    content:"";
+    position:absolute;border-radius:50%;pointer-events:none;
 }
-
+.hero:before{width:280px;height:280px;right:-90px;top:-90px;border:35px solid rgba(39,108,80,.06)}
+.hero:after{width:220px;height:220px;left:-100px;bottom:-100px;border:30px solid rgba(212,106,132,.07)}
+.hero-text{position:relative;z-index:1;max-width:650px}
+.hero-text .eyebrow{
+    display:inline-block;padding:8px 14px;border-radius:30px;
+    background:#e5f3eb;color:#206d4b;font-weight:700;font-size:14px;
+    margin-bottom:18px;
+}
 .hero-text h1{
-    font-size:58px;
-    color:#0a6628;
-    margin-bottom:20px;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(42px,5vw,68px);line-height:1.05;
+    color:#173f2d;margin-bottom:22px;
 }
-
-.hero-text p{
-    font-size:18px;
-    line-height:1.8;
-    margin-bottom:25px;
-}
-
+.hero-text p{font-size:18px;line-height:1.8;color:#56645e;margin-bottom:28px}
 .btn{
-    background:#b30000;
-    color:#fff;
-    padding:14px 28px;
-    text-decoration:none;
-    border-radius:30px;
-    display:inline-block;
+    display:inline-block;color:white;padding:14px 25px;border-radius:16px;
+    font-weight:700;background:linear-gradient(135deg,#276c50,#3d9971);
+    box-shadow:0 10px 22px rgba(39,108,80,.23);
+    transition:.25s;
 }
+.btn:hover{transform:translateY(-3px)}
 
-
-/* ============================= */
-/* SLIDESHOW */
-/* ============================= */
-
-.slideshow-container{
+.hero-image{
+    position:relative;z-index:1;
     width:100%;
-    max-width:450px;
-    height:450px;
+}
+.hero-image img{width:100%;height:auto;display:block;object-fit:cover}
+
+/* ---------- MOVING STRIP ---------- */
+.moving-strip{
+    overflow:hidden;white-space:nowrap;
+    background:linear-gradient(90deg,#1e6247,#348b66,#1e6247);
+    color:white;padding:13px 0;
+    box-shadow:0 6px 18px rgba(31,98,71,.18);
+}
+.moving-text{display:inline-block;padding-left:100%;animation:move 28s linear infinite;font-weight:600}
+@keyframes move{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+/* ---------- COMMON SECTIONS ---------- */
+.section{padding:80px 7%;position:relative}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title .small{
+    color:#c35f7a;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+}
+.section-title h2{
+    font-family:'Playfair Display',serif;
+    color:#173f2d;font-size:46px;margin-top:8px;
+}
+.section-title p{color:#66736d;max-width:650px;margin:12px auto 0;line-height:1.7}
+
+/* ---------- ABOUT ---------- */
+#about{
+    background:
+      radial-gradient(circle at 0 0,rgba(213,237,223,.8),transparent 35%),
+      linear-gradient(180deg,#f9fcf9,#edf6f0);
+}
+.about-wrap{
+    max-width:950px;margin:auto;
+}
+.about-card{
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(39,108,80,.12);
+    border-radius:28px;padding:44px;
+    box-shadow:0 18px 45px rgba(31,72,51,.10);
     position:relative;
     overflow:hidden;
-    border-radius:15px;
+}
+.about-card:before{
+    content:"";position:absolute;right:-70px;top:-70px;width:200px;height:200px;
+    border-radius:50%;background:radial-gradient(circle,rgba(39,108,80,.09),transparent 70%);
+}
+.about-card h3{font-family:'Playfair Display',serif;font-size:32px;color:#1b6244;margin-bottom:16px}
+.about-card p{line-height:1.85;color:#5d6a64;margin-bottom:15px;position:relative;z-index:1}
+.founder-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border-radius:30px;
+    background:linear-gradient(135deg,#fdeef1,#fbe3e9);
+    color:#b3486a;font-weight:700;font-size:13px;letter-spacing:.4px;
+    margin-bottom:22px;
+}
+.about-divider{
+    height:1px;background:linear-gradient(90deg,transparent,rgba(39,108,80,.25),transparent);
+    margin:30px 0 26px;
+}
+.about-sub{
+    font-family:'Playfair Display',serif;color:#1b6244;font-size:20px;margin-bottom:16px;
 }
 
-.slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    top:0;
-    left:0;
-    opacity:0;
-    transition:opacity 1s ease;
-}
-
-.slide.active{
-    opacity:1;
-}
-
-
-/* ============================= */
-/* MOVING STRIP */
-/* ============================= */
-
-.moving-strip{
-    width:100%;
-    background:linear-gradient(90deg,#0b6b3a,#198754,#0b6b3a);
-    color:white;
-    overflow:hidden;
-    white-space:nowrap;
-    padding:15px 0;
-    font-size:18px;
-    font-weight:bold;
-    border-radius:10px;
-    margin:20px 0;
-}
-
-.moving-text{
-    display:inline-block;
-    padding-left:100%;
-    animation:trainmove 25s linear infinite;
-}
-
-@keyframes trainmove{
-
-    0%{
-        transform:translateX(0);
-    }
-
-    100%{
-        transform:translateX(-100%);
-    }
-
-}
-
-
-/* ============================= */
-/* SECTIONS */
-/* ============================= */
-
-.section{
-    padding:70px 5%;
-}
-
-.section h2{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:40px;
-    color:#0a6628;
-}
-
-
-/* ============================= */
-/* CARDS */
-/* ============================= */
-
+/* ---------- CARDS / MENU ---------- */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    max-width:1150px;margin:auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:25px;
 }
-
 .card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    background:white;border-radius:22px;overflow:hidden;
+    border:1px solid rgba(39,108,80,.08);
+    box-shadow:0 12px 30px rgba(31,60,43,.09);
     transition:.3s;
 }
+.card:hover{transform:translateY(-7px);box-shadow:0 20px 38px rgba(31,60,43,.14)}
+.card img{width:100%;height:185px;object-fit:cover;display:block}
+.card h3{text-align:center;padding:18px;color:#234c3a;font-size:20px}
 
-.card:hover{
-    transform:translateY(-5px);
+/* ---------- GALLERY ---------- */
+.gallery-section{
+    background:linear-gradient(135deg,#fff8fa,#f7fbf8);
 }
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+.gallery{
+    max-width:900px;height:500px;margin:auto;position:relative;
+    border-radius:30px;overflow:hidden;
+    box-shadow:0 22px 55px rgba(35,58,48,.18);
+    background:#e9eee9;
 }
-
-.card h3{
-    padding:15px;
-    text-align:center;
+.gallery-slide{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0;transform:scale(1.035);
+    transition:opacity 1s ease,transform 5s ease;
 }
-
-
-/* ============================= */
-/* STORE + REVIEWS SPLIT LAYOUT */
-/* ============================= */
-
-.store-reviews-wrap{
-    display:flex;
-    align-items:flex-start;
-    gap:40px;
-    flex-wrap:wrap;
+.gallery-slide.active{opacity:1;transform:scale(1)}
+.gallery-dots{
+    position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+    display:flex;gap:8px;padding:9px 13px;border-radius:30px;
+    background:rgba(0,0,0,.28);backdrop-filter:blur(8px);
 }
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);cursor:pointer}
+.dot.active{background:white;transform:scale(1.25)}
 
-.store-side{
-    flex:2 1 480px;
+/* ---------- REVIEWS: NOTEPAD ---------- */
+.reviews-section{
+    background:
+      radial-gradient(circle at 15% 15%,rgba(255,226,190,.55),transparent 30%),
+      linear-gradient(135deg,#f7f3e8,#fffdf6);
 }
-
-.store-side h2{
-    text-align:left;
-}
-
-.reviews-side{
-    flex:1 1 320px;
-    max-width:380px;
-}
-
-
-/* ============================= */
-/* CUSTOMER REVIEWS - NOTEPAD STYLE */
-/* ============================= */
-
-#reviews-box{
-    background-color:#fffdf3;
-    background-image:
-        linear-gradient(#fffdf3,#fffdf3),
-        repeating-linear-gradient(
-            #fffdf3 0px,
-            #fffdf3 31px,
-            #dcd6c0 32px
-        );
-    padding:28px 22px 22px 42px;
-    border-radius:6px 6px 14px 14px;
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.15),
-        0 2px 4px rgba(0,0,0,.08);
+.notepad{
+    max-width:900px;margin:auto;
+    background:#fffdf4;
+    border-radius:8px 18px 18px 8px;
     position:relative;
-    border:1px solid #e6e0c8;
-}
-
-/* red margin line, like a real notepad */
-#reviews-box::before{
-    content:"";
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:34px;
-    width:2px;
-    background:rgba(214,66,86,.55);
-}
-
-/* spiral binding holes along the top */
-#reviews-box::after{
-    content:"";
-    position:absolute;
-    top:10px;
-    left:0;
-    right:0;
-    height:12px;
-    background-image:radial-gradient(circle,#d8d2ba 4px,transparent 4.5px);
-    background-size:32px 12px;
-    background-position:20px 0;
-    background-repeat:repeat-x;
-}
-
-#reviews-box h2{
-    text-align:center;
-    color:#0a6628;
-    margin-bottom:20px;
-    font-family:'Caveat',cursive;
-    font-size:34px;
-}
-
-
-/* Review window */
-
-#reviews-container{
-    height:300px;
     overflow:hidden;
-    position:relative;
+    box-shadow:0 22px 50px rgba(84,70,45,.17);
+    border:1px solid #eadfc9;
 }
-
-
-/* Reviews */
-
-#reviews{
-    position:relative;
+.notepad:before{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:58px;
+    background:
+      radial-gradient(circle,#d9bfb4 2px,transparent 3px) 50% 14px/22px 28px repeat-y,
+      #eaded2;
+    border-right:1px solid #d9c8ba;
 }
-
-
-/* Individual comment */
-
+.notepad-head{
+    margin-left:58px;padding:25px 30px 18px;
+    border-bottom:1px solid #e8ddc7;
+    background:linear-gradient(#fffdf5,#fbf4df);
+}
+.notepad-head h2{font-family:'Playfair Display',serif;color:#355d48;font-size:34px}
+.notepad-head p{color:#8a7b67;margin-top:5px}
+#reviews-container{
+    margin-left:58px;height:360px;overflow:hidden;position:relative;
+    background:
+      repeating-linear-gradient(to bottom,transparent 0,transparent 39px,#dbe7ef 40px),
+      #fffdf4;
+}
+#reviews{padding:5px 30px 30px}
 .review{
-    background:transparent;
-    padding:6px 4px 18px 4px;
-    margin:0;
-    border-left:none;
-    border-bottom:1px dashed #d8d2ba;
-    border-radius:0;
-    box-shadow:none;
     position:relative;
-    font-family:'Caveat',cursive;
-    font-size:20px;
-    line-height:1.5;
-    color:#3a3326;
-    transition:.2s;
-}
-
-
-/* Highlight comment when cursor is over it */
-
-.review:hover{
+    padding:13px 12px 16px 4px;
+    margin:0;
+    min-height:75px;
+    font-family:'Comic Sans MS','Segoe Print',cursive;
+    font-size:16px;line-height:1.55;
+    color:#374b54;
+    border-bottom:0;
+    background:transparent;
     box-shadow:none;
-    transform:scale(1.01);
-    color:#0a6628;
 }
+.review:before{
+    content:"";
+    display:inline-block;width:8px;height:8px;border-radius:50%;
+    background:#d46a84;margin-right:8px;
+}
+.review b{color:#315f4a;font-family:'DM Sans',Arial,sans-serif}
+.review:hover{transform:none;box-shadow:none}
 
-
-/* ============================= */
-/* FEEDBACK BUTTON */
-/* ============================= */
-
+/* feedback */
 .feedback-btn{
-    position:fixed;
-    right:20px;
-    bottom:100px;
-    background:#b56a7a;
-    color:white;
-    text-decoration:none;
-    padding:15px 25px;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:bold;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    animation:floatButton 2s ease-in-out infinite;
-    z-index:999;
+    position:fixed;right:22px;bottom:28px;z-index:999;
+    padding:13px 19px;border-radius:18px;color:white;font-weight:700;
+    background:linear-gradient(135deg,#c35f7a,#e28ca1);
+    box-shadow:0 12px 25px rgba(195,95,122,.30);
+    animation:floatBtn 2.5s ease-in-out infinite;
 }
+@keyframes floatBtn{50%{transform:translateY(-7px)}}
 
-@keyframes floatButton{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
-}
-
-
-/* ============================= */
-/* CONTACT - PINK, CURSIVE */
-/* ============================= */
-
+/* ---------- CONTACT ---------- */
 #contact{
-    background:#e85d8a;
+    padding:70px 7%;
+    background:linear-gradient(135deg,#1e4d3a,#2e7657);
     color:white;
-    padding:35px 10px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
+}
+.contact-grid{
+    max-width:1150px;margin:auto;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.contact-card{
+    text-align:center;padding:28px 18px;border-radius:22px;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.16);
+    backdrop-filter:blur(10px);
+}
+.contact-card .icon{font-size:30px;margin-bottom:12px}
+.contact-card h3{font-size:18px;margin-bottom:8px}
+.contact-card p{line-height:1.6;color:rgba(255,255,255,.88)}
+.contact-card a{color:white}
+.insta{display:inline-block;margin-top:8px}
+
+/* ---------- MAP ---------- */
+.map-area{
+    padding:55px 7%;
     text-align:center;
-    align-items:center;
+    background:#edf5ef;
 }
-
-#contact h3{
-    font-family:'Dancing Script',cursive;
-    font-size:30px;
-    font-weight:700;
-    margin-bottom:8px;
-}
-
-#contact p{
-    font-family:'Dancing Script',cursive;
-    font-size:22px;
-    line-height:1.5;
-}
-
-
-/* ============================= */
-/* MAP */
-/* ============================= */
-
 .map-btn{
-    background:#0a6628;
-    color:#fff;
-    padding:14px 30px;
-    border-radius:30px;
-    text-decoration:none;
-    display:inline-block;
-    margin-top:20px;
-    font-weight:bold;
+    display:inline-block;padding:15px 27px;border-radius:16px;
+    color:white;font-weight:700;
+    background:linear-gradient(135deg,#276c50,#4b9f78);
+    box-shadow:0 12px 25px rgba(39,108,80,.22);
+    transition:.25s;
 }
+.map-btn:hover{transform:translateY(-3px)}
 
-
-/* ============================= */
-/* FOOTER - PINK, CURSIVE */
-/* ============================= */
-
+/* ---------- FOOTER ---------- */
 footer{
-    background:#e85d8a;
-    color:#fff;
-    text-align:center;
-    padding:22px;
-    font-family:'Dancing Script',cursive;
-    font-size:22px;
-    font-weight:700;
+    position:relative;overflow:hidden;
+    padding:42px 20px 28px;
+    text-align:center;color:#edf8f1;
+    background:
+      radial-gradient(circle at 15% 20%,rgba(122,194,158,.24),transparent 24%),
+      radial-gradient(circle at 85% 75%,rgba(233,151,174,.20),transparent 25%),
+      linear-gradient(135deg,#132e28,#183d34 48%,#213c36);
+}
+footer:before{
+    content:"✦   ❋   ✦   ❋   ✦   ❋   ✦";
+    display:block;font-size:22px;letter-spacing:12px;
+    color:rgba(255,255,255,.28);margin-bottom:15px;
+}
+.footer-brand{font-family:'Playfair Display',serif;font-size:31px;font-weight:700}
+.footer-sub{margin:8px 0 18px;color:#bcd3c7}
+.footer-line{height:1px;max-width:650px;margin:0 auto 18px;background:rgba(255,255,255,.15)}
+footer small{color:#9fb8ad}
+
+/* ---------- MENU POPUP ---------- */
+.modal{
+    position:fixed;inset:0;z-index:2000;
+    background:rgba(12,27,21,.65);
+    backdrop-filter:blur(8px);
+    display:none;align-items:center;justify-content:center;
+    padding:20px;
+}
+.modal.show{display:flex}
+.modal-box{
+    width:min(900px,100%);max-height:88vh;overflow:auto;
+    background:#f8fbf7;border-radius:28px;padding:32px;
+    box-shadow:0 30px 80px rgba(0,0,0,.28);
+    position:relative;
+}
+.close{
+    position:absolute;right:20px;top:18px;border:0;cursor:pointer;
+    width:42px;height:42px;border-radius:50%;
+    background:#e8f0eb;color:#275b45;font-size:23px;font-weight:700;
+}
+.modal-box h2{text-align:center;font-family:'Playfair Display',serif;color:#1b5b41;font-size:38px;margin-bottom:25px}
+.menu-list{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+}
+.menu-item{
+    padding:16px 18px;border-radius:16px;background:white;
+    border:1px solid #e0eae3;box-shadow:0 7px 18px rgba(35,60,45,.06);
+    font-weight:700;color:#315543;
 }
 
-
-/* ============================= */
-/* MOBILE */
-/* ============================= */
-
-@media(max-width:768px){
-
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    nav a{
-        font-size:16px;
-        padding:10px 16px;
-        margin:5px;
-    }
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .hero-text h1{
-        font-size:40px;
-    }
-
-    .slideshow-container{
-        height:350px;
-    }
-
-    #contact{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
-
-    .store-side h2{
-        text-align:center;
-    }
-
-    .reviews-side{
-        max-width:100%;
-    }
-
+/* ---------- MOBILE ---------- */
+@media(max-width:850px){
+    header{padding:10px 4%;flex-wrap:wrap}
+    .brand-name{font-size:30px}
+    .brand img{width:58px;height:58px}
+    nav{margin-left:auto}
+    .nav-btn{padding:10px 15px;font-size:14px}
+    .hero{grid-template-columns:1fr;padding:55px 5%;text-align:center}
+    .section{padding:60px 5%}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .contact-grid{grid-template-columns:repeat(2,1fr)}
 }
-
+@media(max-width:560px){
+    .brand-name{font-size:25px}
+    .corner{font-size:9px;letter-spacing:5px}
+    nav{width:100%;justify-content:center}
+    .hero-text h1{font-size:40px}
+    .grid,.contact-grid,.menu-list{grid-template-columns:1fr}
+    .about-points{grid-template-columns:1fr}
+    .gallery{height:330px}
+    .notepad-head h2{font-size:27px}
+    #reviews-container{height:320px}
+    .feedback-btn{right:12px;bottom:15px;padding:11px 14px;font-size:13px}
+}
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ============================= -->
-<!-- HEADER -->
-<!-- ============================= -->
-
 <header>
-
-<div style="display:flex;align-items:center;">
-
-    <img src="logo.png" style="width:90px;">
-
-    <div style="margin-left:10px;">
-
-        <div style="font-size:48px;font-weight:bold;">
-
-            <span style="color:#0a6628;">Yum</span>
-            <span style="color:#b30000;">Freez</span>
-
+    <div class="brand">
+        <img src="https://yumfreez.in/logo.png" alt="YumFreez Logo">
+        <div>
+            <div class="brand-name"><span class="yum">Yum</span><span class="freez">Freez</span></div>
+            <div class="corner">CORNER</div>
         </div>
-
-        <div style="
-        color:#b30000;
-        letter-spacing:8px;
-        font-weight:bold;
-        text-align:center;">
-
-            CORNER
-
-        </div>
-
     </div>
 
-</div>
-
-
-<nav>
-
-    <a href="#home">🏡 Home</a>
-
-    <a href="#menu">🍜 Menu</a>
-
-    <a href="#contact">☎️ Contact</a>
-
-</nav>
-
+    <nav>
+        <a href="#about" class="nav-btn">✦ About</a>
+        <button class="nav-btn menu" id="openMenu">☰ Menu</button>
+    </nav>
 </header>
 
+<section class="hero" id="top">
+    <div class="hero-text">
+        <span class="eyebrow">WELCOME TO YUMFREEZ CORNER</span>
+        <h1>One Stop for Snacks, Chaat & Daily Essentials</h1>
+        <p>Fresh Momos, Nepal Style Chatpate, Chaat, Pakora, Tea, Coffee and Daily Use Items — all in one friendly place.</p>
+        <a href="#menu-section" class="btn">Explore Our Menu →</a>
+    </div>
 
-
-<!-- ============================= -->
-<!-- HERO -->
-<!-- ============================= -->
-
-<section class="hero" id="home">
-
-<div class="hero-text">
-
-    <h1>
-        One Stop for Snacks, Chaat & Daily Essentials
-    </h1>
-
-    <p>
-        Fresh Momos, Nepal Style Chatpate, Chaat, Pakora,
-        Tea, Coffee and Daily Use Items.
-    </p>
-
-    <a href="#menu" class="btn">
-        Explore Menu
-    </a>
-
-</div>
-
-
-<div class="slideshow-container">
-
-    <img src="yum.jpeg" class="slide active">
-
-    <img src="yumfreez.jpeg" class="slide">
-
-    <img src="combine.jpeg" class="slide">
-
-</div>
-
+    <div class="hero-image">
+        <img src="https://yumfreez.in/yum.jpeg" alt="YumFreez Corner">
+    </div>
 </section>
-
-
-
-<!-- ============================= -->
-<!-- MOVING MESSAGE -->
-<!-- ============================= -->
 
 <div class="moving-strip">
-
-<div class="moving-text">
-
-🌟 Welcome to YumFreez Corner 🌟
-• 🛒 Your One Stop Shop for Daily Essentials
-• 🥟 Fresh & Tasty Momos
-• 🥗 Authentic Nepal Style Chatpate
-• 🥘 Delicious Chaat & Pani Puri
-• ☕ Refreshing Tea & Coffee
-• 🍫 Chocolates, Snacks & Biscuits
-• 🥤 Cold Drinks & Ice Cream
-• 🍜 Fast Food & Evening Snacks
-• 🌿 Fresh, Clean & Hygienic Environment
-• 😊 Quality Products, Great Taste & Happy Smiles Every Day
-• ❤️ Thank You For Visiting YumFreez Corner ❤️
-
+    <div class="moving-text">
+        🌟 Welcome to YumFreez Corner 🌟 • 🥟 Fresh & Tasty Momos • 🥗 Nepal Style Chatpate • 🥘 Delicious Chaat & Pani Puri • ☕ Tea & Coffee • 🍫 Snacks & Biscuits • 🥤 Cold Drinks • 😊 Quality Products, Great Taste & Happy Smiles Every Day ❤️
+    </div>
 </div>
 
-</div>
+<section class="section" id="about">
+    <div class="section-title">
+        <div class="small">ABOUT US</div>
+        <h2>Good Food. Good Mood.</h2>
+        <p>A warm local stop for tasty snacks, refreshing drinks and everyday essentials.</p>
+    </div>
 
-
-
-<!-- ============================= -->
-<!-- MENU -->
-<!-- ============================= -->
-
-<section class="section" id="menu">
-
-<h2>Our Menu</h2>
-
-<div class="grid">
-
-
-<div class="card">
-
-<img src="momos.jpg">
-
-<h3>Momos</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="panipuri.jpg">
-
-<h3>Pani Puri</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="chaat.jpg">
-
-<h3>Chaat</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="chatpate.jpg">
-
-<h3>Nepal Style Chatpate</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="pakora.jpg">
-
-<h3>Pakora</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="tea.jpg">
-
-<h3>Tea & Coffee</h3>
-
-</div>
-
-
-</div>
-
+    <div class="about-wrap">
+        <div class="about-card">
+            <span class="founder-tag">✨ EST. 4TH SEPTEMBER 2026</span>
+            <h3>Our Story</h3>
+            <p>YumFreez Corner began as the dream of a woman who wanted to build something of her own — a small local corner where her thoughts, her talent and her love for good food could reach the people around her.</p>
+            <p>What started as a single idea on 4th September 2026 has grown into a warm, welcoming spot where every snack is made with care and every customer is treated like family, with her husband standing by her side at every step, supporting her dream and helping it come to life.</p>
+            <p>YumFreez Corner serves fresh momos, pani puri, chaat, Nepal style chatpate, pakora, tea and coffee, along with everyday essentials like chips, biscuits, cold drinks and daily use items — all in one friendly place, made with the same care and love with which it all began.</p>
+        </div>
+    </div>
 </section>
 
+<section class="section" id="menu-section">
+    <div class="section-title">
+        <div class="small">WHAT WE SERVE</div>
+        <h2>Our Menu</h2>
+        <p>Some of the favourites available at YumFreez Corner.</p>
+    </div>
 
-
-<!-- ============================= -->
-<!-- FEEDBACK -->
-<!-- ============================= -->
-
-<a
-href="https://docs.google.com/forms/d/e/1FAIpQLSc84YRr_N65PlBmILzxwlgr_K6uOu6iLjtJ_FkxT31omBLuJw/viewform?usp=header"
-target="_blank"
-class="feedback-btn">
-
-💬 Give Feedback
-
-</a>
-
-
-
-<!-- ============================= -->
-<!-- GENERAL STORE + REVIEWS -->
-<!-- ============================= -->
-
-<section class="section">
-
-<div class="store-reviews-wrap">
-
-
-<!-- GENERAL STORE (left) -->
-
-<div class="store-side">
-
-<h2>
-General Store Essentials
-</h2>
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<img src="chips.jpg">
-
-<h3>
-Chips
-</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="biscuits.jpg">
-
-<h3>
-Biscuits
-</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="colddrinks.jpg">
-
-<h3>
-Cold Drinks
-</h3>
-
-</div>
-
-
-<div class="card">
-
-<img src="dailyitems.jpg">
-
-<h3>
-Daily Essentials
-</h3>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- REVIEWS (right, notepad style) -->
-
-<div class="reviews-side">
-
-<div id="reviews-box">
-
-<h2>
-⭐ Customer Reviews
-</h2>
-
-
-<div id="reviews-container">
-
-<div id="reviews">
-
-<!-- Reviews loaded automatically -->
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
+    <div class="grid">
+        <div class="card"><img src="https://yumfreez.in/momos.jpg" alt="Momos"><h3>Momos</h3></div>
+        <div class="card"><img src="https://yumfreez.in/panipuri.jpg" alt="Pani Puri"><h3>Pani Puri</h3></div>
+        <div class="card"><img src="https://yumfreez.in/chaat.jpg" alt="Chaat"><h3>Chaat</h3></div>
+        <div class="card"><img src="https://yumfreez.in/chatpate.jpg" alt="Chatpate"><h3>Nepal Style Chatpate</h3></div>
+        <div class="card"><img src="https://yumfreez.in/pakora.jpg" alt="Pakora"><h3>Pakora</h3></div>
+        <div class="card"><img src="https://yumfreez.in/tea.jpg" alt="Tea and Coffee"><h3>Tea & Coffee</h3></div>
+    </div>
 </section>
 
+<section class="section gallery-section">
+    <div class="section-title">
+        <div class="small">OUR MOMENTS</div>
+        <h2>Gallery</h2>
+        <p>Take a look at YumFreez Corner through our photos.</p>
+    </div>
 
+    <div class="gallery">
+        <img src="gallery1.jpg" class="gallery-slide active" alt="YumFreez Gallery 1">
+        <img src="gallery2.jpg" class="gallery-slide" alt="YumFreez Gallery 2">
+        <img src="gallery3.jpg" class="gallery-slide" alt="YumFreez Gallery 3">
+        <img src="gallery4.jpg" class="gallery-slide" alt="YumFreez Gallery 4">
+        <img src="gallery5.jpg" class="gallery-slide" alt="YumFreez Gallery 5">
+        <img src="gallery6.jpg" class="gallery-slide" alt="YumFreez Gallery 6">
+        <img src="gallery7.jpg" class="gallery-slide" alt="YumFreez Gallery 7">
+        <div class="gallery-dots" id="galleryDots"></div>
+    </div>
+</section>
 
-<!-- ============================= -->
-<!-- CONTACT -->
-<!-- ============================= -->
+<section class="section" style="background:#f8fbf8">
+    <div class="section-title">
+        <div class="small">SHOPPING</div>
+        <h2>Daily Essentials</h2>
+        <p>Useful everyday products available at our store.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card"><img src="https://yumfreez.in/chips.jpg" alt="Chips"><h3>Chips</h3></div>
+        <div class="card"><img src="https://yumfreez.in/biscuits.jpg" alt="Biscuits"><h3>Biscuits</h3></div>
+        <div class="card"><img src="https://yumfreez.in/colddrinks.jpg" alt="Cold Drinks"><h3>Cold Drinks</h3></div>
+        <div class="card"><img src="https://yumfreez.in/dailyitems.jpg" alt="Daily Essentials"><h3>Daily Essentials</h3></div>
+    </div>
+</section>
+
+<a class="feedback-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc84YRr_N65PlBmILzxwlgr_K6uOu6iLjtJ_FkxT31omBLuJw/viewform?usp=header" target="_blank">💬 Give Feedback</a>
+
+<section class="section reviews-section">
+    <div class="notepad">
+        <div class="notepad-head">
+            <h2>⭐ Customer Reviews</h2>
+            <p>What our customers are saying...</p>
+        </div>
+        <div id="reviews-container">
+            <div id="reviews"></div>
+        </div>
+    </div>
+</section>
 
 <section id="contact">
-
-
-<div>
-
-<h3>
-📍 Visit Us
-</h3>
-
-<p>
-Ahalay 1, Gorubathan<br>
-Kalimpong - 735231
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-📞 Call Us
-</h3>
-
-<p>
-07501749231
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-👤 Proprietor
-</h3>
-
-<p>
-Geeta Sharma
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-Follow Us
-</h3>
-
-<a
-href="https://instagram.com/lifestylegeetas"
-target="_blank">
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-alt="Instagram"
-width="30">
-
-</a>
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================= -->
-<!-- GOOGLE MAP -->
-<!-- ============================= -->
-
-<div style="text-align:center;margin:40px 0;">
-
-<a
-class="map-btn"
-href="https://share.google/3h0U26xDqWjyRvXpV"
-target="_blank">
-
-📍 View on Google Maps
-
-</a>
-
-</div>
-
-
-
-<!-- ============================= -->
-<!-- FOOTER -->
-<!-- ============================= -->
-
-<footer>
-
-© 2026 YumFreez Corner | All Rights Reserved
-
-</footer>
-
-
-
-<!-- ============================= -->
-<!-- SLIDESHOW SCRIPT -->
-<!-- ============================= -->
-
-<script>
-
-const slides = document.querySelectorAll('.slide');
-
-let currentSlide = 0;
-
-setInterval(() => {
-
-    slides[currentSlide].classList.remove('active');
-
-    currentSlide =
-        (currentSlide + 1) % slides.length;
-
-    slides[currentSlide].classList.add('active');
-
-},3000);
-
-</script>
-
-
-
-<!-- ============================= -->
-<!-- CUSTOMER REVIEWS SCRIPT -->
-<!-- ============================= -->
-
-<script>
-
-fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJMY6iF_9i6Epx3TaHF5mt_rPxFJK_a-jkBEwg/exec")
-
-.then(response => response.json())
-
-.then(data => {
-
-    let html = "";
-
-
-    /* Newest reviews first */
-
-    data.reverse().forEach(review => {
-
-        html += `
-
-        <div class="review">
-
-            <b>${review.name}</b>
-
-            <br>
-
-            ⭐ ${review.rating}
-
-            <br>
-
-            ${review.feedback}
-
+    <div class="section-title" style="margin-bottom:35px">
+        <div class="small" style="color:#ffd4df">CONTACT</div>
+        <h2 style="color:white">Come Visit Us</h2>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-card">
+            <div class="icon">📍</div>
+            <h3>Visit Us</h3>
+            <p>Ahalay 1, Gorubathan<br>Kalimpong - 735231</p>
         </div>
 
-        `;
+        <div class="contact-card">
+            <div class="icon">📞</div>
+            <h3>Call Us</h3>
+            <p><a href="tel:07501749231">07501749231</a></p>
+        </div>
 
-    });
+        <div class="contact-card">
+            <div class="icon">👤</div>
+            <h3>Proprietor</h3>
+            <p>Geeta Sharma</p>
+        </div>
 
+        <div class="contact-card">
+            <div class="icon">📸</div>
+            <h3>Follow Us</h3>
+            <a class="insta" href="https://instagram.com/lifestylegeetas" target="_blank">Instagram ↗</a>
+        </div>
+    </div>
+</section>
 
-    /*
-    Duplicate the reviews.
-    This creates the continuous
-    scrolling effect.
-    */
+<div class="map-area">
+    <a class="map-btn" href="https://share.google/3h0U26xDqWjyRvXpV" target="_blank">📍 Open Exact Location in Google Maps</a>
+</div>
 
-    document.getElementById("reviews").innerHTML =
-        html + html;
+<footer>
+    <div class="footer-brand">YumFreez Corner</div>
+    <div class="footer-sub">Fresh bites • Happy moments • Everyday essentials</div>
+    <div class="footer-line"></div>
+    <small>© 2026 YumFreez Corner | All Rights Reserved</small>
+</footer>
 
+<!-- MENU POPUP -->
+<div class="modal" id="menuModal">
+    <div class="modal-box">
+        <button class="close" id="closeMenu" aria-label="Close menu">×</button>
+        <h2>🍽️ YumFreez Menu</h2>
 
-    /* ============================= */
-    /* REVIEW SCROLLER */
-    /* ============================= */
+        <div class="menu-list">
+            <div class="menu-item">🥟 Momos</div>
+            <div class="menu-item">🥘 Pani Puri</div>
+            <div class="menu-item">🥗 Chaat</div>
+            <div class="menu-item">🌶️ Nepal Style Chatpate</div>
+            <div class="menu-item">🥘 Pakora</div>
+            <div class="menu-item">☕ Tea & Coffee</div>
+            <div class="menu-item">🍟 Chips</div>
+            <div class="menu-item">🍪 Biscuits</div>
+            <div class="menu-item">🥤 Cold Drinks</div>
+            <div class="menu-item">🛒 Daily Essentials</div>
+        </div>
+    </div>
+</div>
 
-    const container =
-        document.getElementById("reviews-container");
-
-    const reviews =
-        document.getElementById("reviews");
-
-    let position = 0;
-
-    const speed = 0.45;
-
-    let hoveredComment = null;
-
-
-    /* Detect ONLY individual comments */
-
-    document.querySelectorAll(".review").forEach(review => {
-
-        review.addEventListener("mouseenter", function(){
-
-            hoveredComment = this;
-
-        });
-
-
-        review.addEventListener("mouseleave", function(){
-
-            hoveredComment = null;
-
-        });
-
-    });
-
-
-    /* ============================= */
-    /* SCROLL FUNCTION */
-    /* ============================= */
-
-    function moveReviews(){
-
-        /*
-        Normally move upward
-        */
-
-        if(!hoveredComment){
-
-            position -= speed;
-
-        }
-
-
-        reviews.style.transform =
-            "translateY(" + position + "px)";
-
-
-        /*
-        When cursor is directly over
-        a comment, scrolling pauses.
-        */
-
-        if(hoveredComment){
-
-            reviews.style.transform =
-                "translateY(" + position + "px)";
-
-        }
-
-
-        /*
-        When first copy has moved away,
-        restart from the beginning.
-        */
-
-        const halfHeight =
-            reviews.scrollHeight / 2;
-
-
-        if(Math.abs(position) >= halfHeight){
-
-            position = 0;
-
-        }
-
-
-        requestAnimationFrame(moveReviews);
-
-    }
-
-
-    moveReviews();
-
-})
-
-.catch(error => {
-
-    console.log(
-        "Unable to load reviews:",
-        error
-    );
-
+<script>
+/* MENU POPUP */
+const menuModal = document.getElementById('menuModal');
+document.getElementById('openMenu').addEventListener('click',()=>menuModal.classList.add('show'));
+document.getElementById('closeMenu').addEventListener('click',()=>menuModal.classList.remove('show'));
+menuModal.addEventListener('click',(e)=>{
+    if(e.target === menuModal) menuModal.classList.remove('show');
+});
+document.addEventListener('keydown',(e)=>{
+    if(e.key === 'Escape') menuModal.classList.remove('show');
 });
 
+/* GALLERY */
+const gallerySlides = document.querySelectorAll('.gallery-slide');
+const galleryDots = document.getElementById('galleryDots');
+let galleryIndex = 0;
+
+gallerySlides.forEach((_,i)=>{
+    const dot=document.createElement('span');
+    dot.className='dot'+(i===0?' active':'');
+    dot.addEventListener('click',()=>showGallery(i));
+    galleryDots.appendChild(dot);
+});
+
+function showGallery(index){
+    gallerySlides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+    document.querySelectorAll('.dot').forEach((dot,i)=>dot.classList.toggle('active',i===index));
+    galleryIndex=index;
+}
+setInterval(()=>{
+    galleryIndex=(galleryIndex+1)%gallerySlides.length;
+    showGallery(galleryIndex);
+},4500);
+
+/* CUSTOMER REVIEWS */
+fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJMY6iF_9i6Epx3TaHF5mt_rPxFJK_a-jkBEwg/exec")
+.then(response=>response.json())
+.then(data=>{
+    let html="";
+    data.reverse().forEach(review=>{
+        html += `
+        <div class="review">
+            <b>${review.name}</b>
+            <br>
+            ⭐ ${review.rating}
+            <br>
+            ${review.feedback}
+        </div>`;
+    });
+
+    const reviews=document.getElementById("reviews");
+    reviews.innerHTML=html+html;
+
+    const container=document.getElementById("reviews-container");
+    let position=0;
+    const speed=.38;
+    let hoveredComment=null;
+
+    reviews.querySelectorAll(".review").forEach(review=>{
+        review.addEventListener("mouseenter",()=>hoveredComment=review);
+        review.addEventListener("mouseleave",()=>hoveredComment=null);
+    });
+
+    function moveReviews(){
+        if(!hoveredComment) position-=speed;
+        reviews.style.transform=`translateY(${position}px)`;
+
+        const halfHeight=reviews.scrollHeight/2;
+        if(Math.abs(position)>=halfHeight) position=0;
+
+        requestAnimationFrame(moveReviews);
+    }
+    moveReviews();
+})
+.catch(error=>{
+    document.getElementById("reviews").innerHTML=
+        '<div class="review"><b>YumFreez Corner</b><br>⭐ Thank you for visiting us!</div>';
+    console.log("Unable to load reviews:",error);
+});
 </script>
 
-
 </body>
-
 </html>
