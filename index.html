@@ -293,7 +293,8 @@ nav{display:flex;align-items:center;gap:12px}
 .contact-card h3{font-size:18px;margin-bottom:8px}
 .contact-card p{line-height:1.6;color:rgba(255,255,255,.88)}
 .contact-card a{color:white}
-.insta{display:inline-block;margin-top:8px}
+.insta{display:inline-flex;align-items:center;gap:8px;margin-top:8px}
+.insta svg{width:20px;height:20px;flex-shrink:0}
 
 /* ---------- MAP ---------- */
 .map-area{
@@ -535,7 +536,14 @@ footer small{color:#9fb8ad}
         <div class="contact-card">
             <div class="icon">📸</div>
             <h3>Follow Us</h3>
-            <a class="insta" href="https://instagram.com/lifestylegeetas" target="_blank">Instagram ↗</a>
+            <a class="insta" href="https://instagram.com/lifestylegeetas" target="_blank">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="6" stroke="white" stroke-width="1.8"/>
+                    <circle cx="12" cy="12" r="4.6" stroke="white" stroke-width="1.8"/>
+                    <circle cx="17.4" cy="6.6" r="1.15" fill="white"/>
+                </svg>
+                Instagram ↗
+            </a>
         </div>
     </div>
 </section>
