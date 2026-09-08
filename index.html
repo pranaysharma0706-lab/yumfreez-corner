@@ -536,7 +536,7 @@ footer small{color:#9fb8ad}
         <div class="contact-card">
             <div class="icon">📸</div>
             <h3>Follow Us</h3>
-            <a class="insta" href="https://instagram.com/yumfreez.in" target="_blank">
+            <a class="insta" href="https://instagram.com/lifestylegeetas" target="_blank">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="2" y="2" width="20" height="20" rx="6" stroke="white" stroke-width="1.8"/>
                     <circle cx="12" cy="12" r="4.6" stroke="white" stroke-width="1.8"/>
@@ -631,28 +631,34 @@ fetch("https://script.google.com/macros/s/AKfycbyJ3GcH0sWr0fEQXPHeB38-g-pIso-sfJ
     });
 
     const reviews=document.getElementById("reviews");
-    reviews.innerHTML=html+html;
 
-    const container=document.getElementById("reviews-container");
-    let position=0;
-    const speed=.38;
-    let hoveredComment=null;
+    /* Only auto-scroll the notepad when there are more than 2 reviews.
+       With 2 or fewer, just show them statically (no duplication, no motion). */
+    if(data.length>2){
+        reviews.innerHTML=html+html;
 
-    reviews.querySelectorAll(".review").forEach(review=>{
-        review.addEventListener("mouseenter",()=>hoveredComment=review);
-        review.addEventListener("mouseleave",()=>hoveredComment=null);
-    });
+        let position=0;
+        const speed=.38;
+        let hoveredComment=null;
 
-    function moveReviews(){
-        if(!hoveredComment) position-=speed;
-        reviews.style.transform=`translateY(${position}px)`;
+        reviews.querySelectorAll(".review").forEach(review=>{
+            review.addEventListener("mouseenter",()=>hoveredComment=review);
+            review.addEventListener("mouseleave",()=>hoveredComment=null);
+        });
 
-        const halfHeight=reviews.scrollHeight/2;
-        if(Math.abs(position)>=halfHeight) position=0;
+        function moveReviews(){
+            if(!hoveredComment) position-=speed;
+            reviews.style.transform=`translateY(${position}px)`;
 
-        requestAnimationFrame(moveReviews);
+            const halfHeight=reviews.scrollHeight/2;
+            if(Math.abs(position)>=halfHeight) position=0;
+
+            requestAnimationFrame(moveReviews);
+        }
+        moveReviews();
+    } else {
+        reviews.innerHTML=html;
     }
-    moveReviews();
 })
 .catch(error=>{
     document.getElementById("reviews").innerHTML=
